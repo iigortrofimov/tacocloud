@@ -1,6 +1,5 @@
 package com.trofimov.igor.tacos;
 
-import com.trofimov.igor.tacos.controller.HomeController;
 import static org.hamcrest.Matchers.containsString;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-@WebMvcTest(HomeController.class)
+@WebMvcTest
 class TacoCloudApplicationTests {
 
     @Autowired
