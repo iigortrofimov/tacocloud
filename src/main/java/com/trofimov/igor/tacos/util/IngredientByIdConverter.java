@@ -1,7 +1,7 @@
-package com.trofimov.igor.tacos;
+package com.trofimov.igor.tacos.util;
 
 import com.trofimov.igor.tacos.domain.Ingredient;
-import com.trofimov.igor.tacos.repositories.IngredientRepository;
+import com.trofimov.igor.tacos.repositories.jdbc.JdbcIngredientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
 
-    private IngredientRepository ingredientRepository;
+    private JdbcIngredientRepository ingredientRepository;
 
     @Override
     public Ingredient convert(String id) {

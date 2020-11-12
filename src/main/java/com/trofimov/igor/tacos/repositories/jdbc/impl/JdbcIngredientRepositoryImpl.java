@@ -1,7 +1,7 @@
-package com.trofimov.igor.tacos.repositories.impl;
+package com.trofimov.igor.tacos.repositories.jdbc.impl;
 
 import com.trofimov.igor.tacos.domain.Ingredient;
-import com.trofimov.igor.tacos.repositories.IngredientRepository;
+import com.trofimov.igor.tacos.repositories.jdbc.JdbcIngredientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 @Repository
 @AllArgsConstructor
-public class JdbcIngredientRepository
-        implements IngredientRepository {
+public class JdbcIngredientRepositoryImpl
+        implements JdbcIngredientRepository {
 
     private JdbcTemplate jdbc;
 

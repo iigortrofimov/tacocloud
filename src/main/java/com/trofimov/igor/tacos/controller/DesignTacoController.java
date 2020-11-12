@@ -4,8 +4,8 @@ package com.trofimov.igor.tacos.controller;
 import com.trofimov.igor.tacos.domain.Ingredient;
 import com.trofimov.igor.tacos.domain.Order;
 import com.trofimov.igor.tacos.domain.Taco;
-import com.trofimov.igor.tacos.repositories.IngredientRepository;
-import com.trofimov.igor.tacos.repositories.TacoRepository;
+import com.trofimov.igor.tacos.repositories.jdbc.JdbcIngredientRepository;
+import com.trofimov.igor.tacos.repositories.jdbc.JdbcTacoRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -30,9 +30,9 @@ import java.util.stream.Collectors;
 public class DesignTacoController {
 
 
-    private final IngredientRepository ingredientRepo;
+    private final JdbcIngredientRepository ingredientRepo;
 
-    private TacoRepository designRepo;
+    private JdbcTacoRepository designRepo;
 
 
     @ModelAttribute(name = "order")

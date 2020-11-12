@@ -1,7 +1,7 @@
 package com.trofimov.igor.tacos.controller;
 
 import com.trofimov.igor.tacos.domain.Order;
-import com.trofimov.igor.tacos.repositories.OrderRepository;
+import com.trofimov.igor.tacos.repositories.jdbc.JdbcOrderRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ import javax.validation.Valid;
 @RequestMapping("/orders")
 public class OrderController {
 
-    private OrderRepository orderRepository;
+    private JdbcOrderRepository orderRepository;
 
     @GetMapping("/current")
     public String orderForm() {
