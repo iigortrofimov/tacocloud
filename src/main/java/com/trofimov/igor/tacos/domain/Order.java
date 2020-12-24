@@ -2,6 +2,7 @@ package com.trofimov.igor.tacos.domain;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "Taco_Order")
-public class Order implements Serializable {
+public class Order extends RepresentationModel<Order> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

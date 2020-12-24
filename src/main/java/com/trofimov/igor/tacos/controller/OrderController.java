@@ -1,4 +1,4 @@
-package com.trofimov.igor.tacos.controller;
+/*package com.trofimov.igor.tacos.controller;
 
 import com.trofimov.igor.tacos.domain.Order;
 import com.trofimov.igor.tacos.domain.User;
@@ -57,7 +57,7 @@ public class OrderController {
         model.addAttribute("orders", orderRepository.findByUserOrderByPlacedAtDesc(user, pageable));
         return "orderList";
     }
-}
+}*/
 
 /*    Authentication authentication =
             SecurityContextHolder.getContext().getAuthentication();

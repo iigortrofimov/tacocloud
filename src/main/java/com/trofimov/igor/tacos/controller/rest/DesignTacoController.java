@@ -3,13 +3,14 @@ package com.trofimov.igor.tacos.controller.rest;
 
 import com.trofimov.igor.tacos.domain.Order;
 import com.trofimov.igor.tacos.domain.Taco;
+import com.trofimov.igor.tacos.dto.TacoResources;
 import com.trofimov.igor.tacos.repositories.springdata.OrderRepository;
 import com.trofimov.igor.tacos.repositories.springdata.TacoRepository;
+import com.trofimov.igor.tacos.services.TacoService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.server.EntityLinks;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,15 +35,15 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 public class DesignTacoController {
 
+    private final TacoService tacoService;
     private final TacoRepository tacoRepo;
     private final OrderRepository orderRepo;
 
     EntityLinks entityLinks;
 
     @GetMapping("/recent")
-    public Iterable<Taco> recentTacos() {
-        PageRequest page = PageRequest.of(0, 12, Sort.by("createdAt").descending());
-        return tacoRepo.findAll(page).getContent();
+    public CollectionModel<TacoResources> recentTacos() {
+        return tacoService.recentTacos();
     }
 
     @GetMapping("/{id}")

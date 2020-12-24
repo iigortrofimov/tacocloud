@@ -1,42 +1,52 @@
 package com.trofimov.igor.tacos.configurations;
 
 import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.sql.DataSource;
 
 @Configuration
-@AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private DataSource dataSource;
+    // private DataSource dataSource;
 
-    private UserDetailsService userDetailsService;
+    // private UserDetailsService userDetailsService;
 
-    @Bean
+/*    @Bean
     public PasswordEncoder encode() {
         return new BCryptPasswordEncoder();
-    }
+    }*/
+
+    @Value("${app.auth.user}")
+    private String user;
+
+    @Value("${app.auth.password}")
+    private String password;
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(encode());
+        auth.inMemoryAuthentication()
+                .withUser(user)
+                .password(password)
+                .roles("users");
+/*                .userDetailsService(userDetailsService)
+                .passwordEncoder(encode());*/
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
+        http.authorizeRequests().anyRequest()
+                .access("permitAll")
+                .and()
+                .httpBasic()
+                .and()
+                .csrf().disable();
+
+/*                .authorizeRequests()
                 .antMatchers("/design", "/orders")
                 .access("hasRole('ROLE_USER')")
                 .antMatchers("/", "/**")
@@ -52,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf()
                 .disable()
-        ;
+        ;*/
     }
 
     @Override

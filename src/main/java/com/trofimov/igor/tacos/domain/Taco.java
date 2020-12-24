@@ -1,6 +1,8 @@
 package com.trofimov.igor.tacos.domain;
 
 import lombok.Data;
+import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +17,8 @@ import java.util.List;
 
 @Data
 @Entity
-public class Taco {
+@RestResource(rel = "tacos", path = "tacos")
+public class Taco{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

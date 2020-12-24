@@ -1,3 +1,4 @@
+/*
 package com.trofimov.igor.tacos.controller;
 
 import com.trofimov.igor.tacos.domain.RegistrationForm;
@@ -28,3 +29,4 @@ public class RegistrationController {
         return "redirect:/login";
     }
 }
+*/
