@@ -3,7 +3,6 @@ package com.trofimov.igor.tacos.dto;
 import com.trofimov.igor.tacos.domain.Taco;
 import lombok.Getter;
 import org.springframework.hateoas.RepresentationModel;
-import org.springframework.hateoas.server.core.Relation;
 
 import java.util.Date;
 import java.util.List;

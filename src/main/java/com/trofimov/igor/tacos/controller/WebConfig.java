@@ -1,4 +1,3 @@
-/*
 package com.trofimov.igor.tacos.controller;
 
 import org.springframework.context.annotation.Configuration;
@@ -12,5 +11,5 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("home");
         registry.addViewController("/login");
     }
+
 }
-*/

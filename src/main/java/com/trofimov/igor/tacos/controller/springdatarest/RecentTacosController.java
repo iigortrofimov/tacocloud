@@ -18,7 +18,6 @@ public class RecentTacosController {
 
     @GetMapping(path = "/tacos/recents", produces = "application/hal+json")
     public ResponseEntity<CollectionModel<TacoResources>> recentTacos() {
-
         return new ResponseEntity<>(tacoService.recentTacos(), HttpStatus.OK);
     }
 
