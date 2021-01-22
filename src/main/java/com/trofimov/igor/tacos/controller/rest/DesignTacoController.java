@@ -37,7 +37,6 @@ public class DesignTacoController {
 
     private final TacoService tacoService;
     private final TacoRepository tacoRepo;
-    private final OrderRepository orderRepo;
 
     EntityLinks entityLinks;
 
@@ -57,49 +56,6 @@ public class DesignTacoController {
     @ResponseStatus(code = HttpStatus.CREATED)
     public Taco postTaco(@RequestBody Taco taco) {
         return tacoRepo.save(taco);
-    }
-
-    @PatchMapping(consumes = "application/json", path = "{orderId}")
-    public Order updateOrder(@RequestBody Order patch, @PathVariable Long orderId) {
-        Optional<Order> byId = orderRepo.findById(orderId);
-        if (byId.isPresent()) {
-            Order order = byId.get();
-            if (patch.getName() != null) {
-                order.setName(patch.getName());
-            }
-            if (patch.getStreet() != null) {
-                order.setStreet(patch.getStreet());
-            }
-            if (patch.getCity() != null) {
-                order.setCity(patch.getCity());
-            }
-            if (patch.getState() != null) {
-                order.setState(patch.getState());
-            }
-            if (patch.getZip() != null) {
-                order.setZip(patch.getState());
-            }
-            if (patch.getCcNumber() != null) {
-                order.setCcNumber(patch.getCcNumber());
-            }
-            if (patch.getCcExpiration() != null) {
-                order.setCcExpiration(patch.getCcExpiration());
-            }
-            if (patch.getCcCVV() != null) {
-                order.setCcCVV(patch.getCcCVV());
-            }
-            return orderRepo.save(order);
-        }
-        return null;
-    }
-
-    @DeleteMapping("{orderId}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void removeById(@PathVariable Long orderId) {
-        try {
-            orderRepo.deleteById(orderId);
-        } catch (EmptyResultDataAccessException ignored) {
-        }
     }
 
 }

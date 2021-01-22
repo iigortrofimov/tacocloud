@@ -43,7 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/design/**", "/orders/**")
-                .access("hasRole('USER')")
+                .permitAll()
+               //permit only for test
+                // .access("hasRole('USER')")
                 .antMatchers("/", "/register", "/api/**")
                 .access("permitAll")
                 .anyRequest()

@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    List<Order> findByZip(String zip);
+/*    List<Order> findByZip(String zip);
 
-    List<Order> findByZipAndPlacedAtBetween(String zip, Date startDate, Date endDate);
+    List<Order> findByZipAndPlacedAtBetween(String zip, Date startDate, Date endDate);*/
 
     List<Order> findByUserOrderByPlacedAtDesc(User user, Pageable pageable);
 
