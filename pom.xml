@@ -77,10 +77,15 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
 <!--       &lt;!&ndash; JMS Artemis MQ&ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-artemis</artifactId>
+            <artifactId>spring-boot-starter-artemismq</artifactId>
         </dependency>-->
 
         <!--   <dependency>

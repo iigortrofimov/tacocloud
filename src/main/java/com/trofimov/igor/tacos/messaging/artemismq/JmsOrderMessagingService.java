@@ -1,6 +1,8 @@
-package com.trofimov.igor.tacos.messaging;
+/*
+package com.trofimov.igor.tacos.messaging.artemismq;
 
 import com.trofimov.igor.tacos.domain.Order;
+import com.trofimov.igor.tacos.messaging.OrderMessagingService;
 import lombok.AllArgsConstructor;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,7 @@ public class JmsOrderMessagingService implements OrderMessagingService {
         });
     }
 
+*/
 /*    @Override
     public void sendOrder(Order order) {
         jmsTemplate.send(orderQueue, session -> {
@@ -29,12 +32,16 @@ public class JmsOrderMessagingService implements OrderMessagingService {
             message.setStringProperty("X_ORDER_SOURCE", "WEB");
             return message;
         });
-    }*/
+    }*//*
 
+
+*/
 /*    @Override
     public void sendOrder(Order order) {
         jmsTemplate.send("tacocloud.order.queue",
                 session -> session.createObjectMessage(order));
-    }*/
+    }*//*
+
 
 }
+*/

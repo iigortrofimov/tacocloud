@@ -1,4 +1,5 @@
-package com.trofimov.igor.tacos.messaging;
+/*
+package com.trofimov.igor.tacos.messaging.artemismq;
 
 import com.trofimov.igor.tacos.domain.Order;
 import org.springframework.jms.annotation.JmsListener;
@@ -13,3 +14,4 @@ public class OrderListener {
     }
 
 }
+*/
